@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webappred
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: webappred
+      chapter: istio
+      topic: traffic-management
+      version: v1
+  replicas: 3 # tells deployment to run 1 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: webappred
+        chapter: istio
+        topic: traffic-management
+        version: v1
+    spec:
+      containers:
+      - name: test-container
+        image: sanish/webappred:latest
+        ports:
+        - containerPort: 8080

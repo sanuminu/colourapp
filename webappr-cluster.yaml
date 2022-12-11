@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: webapp-servicered
+spec:
+  selector:
+    app: webappred
+    chapter: istio
+    topic: traffic-management
+    version: v1
+  ports:
+  - protocol: TCP
+    port: 8080
+  type: ClusterIP
