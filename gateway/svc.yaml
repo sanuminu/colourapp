@@ -4,7 +4,7 @@ metadata:
   name: istio-virtual-ingress
 spec:
   hosts:
-    - "*"
+    - "colour.avenger.com"
   gateways: 
   - istio-ingress-gateway
   http:

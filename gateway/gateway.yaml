@@ -8,11 +8,11 @@ spec:
     app: istio-ingressgateway
   servers:
   - port:
-      number: 80
-      name: http
-      protocol: HTTP
-    #tls: 
-      #mode: SIMPLE
-      #credentialName: domain-secret
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls: 
+      mode: SIMPLE
+      credentialName: domain-secret
     hosts:
-    - "*"
+    - "colour.avenger.com"
