@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: istio-virtual-ingress
+spec:
+  hosts:
+    - "*"
+  gateways: 
+  - istio-ingress-gateway
+  http:
+  - name: red-route
+    match: 
+    - uri:
+       prefix: "/red"
+    rewrite:
+      uri: "/"
+    route:
+    - destination:
+        host: webapp-servicered.default.svc.cluster.local
+        subset: app-service-reduri
+
+  - name: yellow-route
+    route:
+    - destination:
+        host: webapp-serviceyellow.default.svc.cluster.local
+        subset: app-service-yellowuri
